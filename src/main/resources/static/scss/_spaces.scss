@@ -1,0 +1,48 @@
+/* Todos os margins de 10 a 60! */
+@for $i from 1 through 6 {
+	.space#{$i}0-top {
+		margin-top: 0px + ($i * 10)}}
+@for $i from 1 through 6 {
+	.space#{$i}0-bottom {
+		margin-bottom: 0px + ($i * 10)}}
+@for $i from 1 through 6 {
+	.space#{$i}0-left {
+		margin-left: 0px + ($i * 10)}}
+@for $i from 1 through 6 {
+	.space#{$i}0-right {
+		margin-right: 0px + ($i * 10)}}
+@for $i from 1 through 6 {
+	.space#{$i}0 {
+		@extend .space#{($i * 10)}-bottom;
+		@extend .space#{($i * 10)}-top}}
+@for $i from 1 through 6 {
+	.space#{$i}0-lat {
+		@extend .space#{($i * 10)}-left;
+		@extend .space#{($i * 10)}-right}}
+		
+/* Todos os paddings de 10 a 100! */
+@for $i from 1 through 10 {
+	.pad#{$i}0-top {
+		padding-top: 0px + ($i * 10)}}
+@for $i from 1 through 10 {
+	.pad#{$i}0-bottom {
+		padding-bottom: 0px + ($i * 10)}}
+@for $i from 1 through 10 {
+	.pad#{$i}0-left {
+		padding-left: 0px + ($i * 10)}}
+@for $i from 1 through 10 {
+	.pad#{$i}0-right {
+		padding-right: 0px + ($i * 10)}}
+@for $i from 1 through 10 {
+	.pad#{$i}0 {
+		@extend .pad#{($i * 10)}-bottom;
+		@extend .pad#{($i * 10)}-top}}
+@for $i from 1 through 10 {
+	.pad#{$i}0-lat {
+		@extend .pad#{($i * 10)}-left;
+		@extend .pad#{($i * 10)}-right}}
+
+.row.no-pad > [class*='col-'] {
+	padding-right:0;
+	padding-left:0;
+}

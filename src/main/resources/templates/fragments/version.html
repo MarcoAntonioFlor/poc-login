@@ -1,0 +1,7 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<th:block th:fragment="version">
+	<div id="version-container">
+		<span class="version" th:text="${@loginSessionBean.getVersion()}"></span>
+	</div>
+</th:block>
+</html>

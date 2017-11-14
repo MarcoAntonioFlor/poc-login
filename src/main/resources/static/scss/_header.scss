@@ -1,0 +1,330 @@
+/*dados do header*/
+.header{
+    display: block;
+    height: 62px;
+    padding: 0 30px 0 0;
+    margin: 0;
+    background: $colorWhite;
+    position: relative;
+    .header-groups{
+        display: inline-block;
+        vertical-align: middle;
+        height: 62px;
+        float: left;
+    }
+    .logo-higia{
+        @include noSelect();
+        display: inline-block;
+        float: left;
+        padding-left: 20px;
+    }
+    .company-data{
+        display: none;
+        width: 120px;
+        @include noSelect();
+        white-space: nowrap;
+        position: relative;
+        height: 62px;
+        .fa-building-o{
+            font-size: 22px;
+            padding: 20px 0;
+            color: #DB2A17;
+        }
+        .label-item1{
+            white-space: nowrap;
+            @extend .font-medium;
+            font-size: 14px;
+            vertical-align: super;
+        }
+        .label-item2{
+            @extend .font-regular;
+            font-size: 13px;
+            position: absolute;
+            margin-left: 20px;
+            top: 34px;
+            text-decoration: underline;
+            cursor: pointer;
+            color:#00aeef;
+        }
+    }
+    .personal-data{
+        display: none;
+        @include noSelect();
+        margin-left: 100px; 
+        white-space: nowrap;
+        width: 60px;
+        position: relative;
+        height: 62px;
+        .fa-user-circle{
+            font-size: 22px;
+            padding: 20px 0;
+            color: $colorGreyDark;
+        }
+        .label-item1{
+            white-space: nowrap;
+            @extend .font-medium;
+            font-size: 14px;
+            vertical-align: super;
+        }
+        .label-item2{
+            @extend .font-regular;
+            font-size: 13px;
+            position: absolute;
+            margin-left: 25px;
+            top: 34px;
+            color:$colorGreyDark;
+        }
+    }
+    .exit{
+        @include noSelect();
+        padding: 18px 0;
+        .fa-sign-out{
+            cursor: pointer;
+            margin-left: 80px;
+            font-size: 24px;
+            text-decoration: none;
+            color: $colorBlack;
+            &:hover{
+                margin-top:0;
+                color: #DB2A17; 
+                text-decoration: none;
+            }
+        }
+    }
+}
+
+/*menu lateral*/
+#check{
+    position: absolute;
+    top: 0;
+    display: none;
+}
+.item{
+    display: inline-block;
+    position: absolute;
+    top: 18px;
+    left: 260px;
+    .fa-bars{
+        font-size: 24px;
+        color: $colorGreyDark;
+        cursor: pointer;
+        @include noSelect();
+    }
+}
+#check:checked ~ .barra-lateral{
+    @include transform(translateX(310px));
+} 
+
+.barra-lateral{
+    background-color: $colorWhite;
+    height: 100%;
+    width: 300px;
+    position: absolute;
+    @include transition(all .2s linear);
+    z-index: 200; 
+    left: -310px;
+    top: 62px;
+    bottom: 0px;
+    right: 0px;
+    
+    nav{
+        width: 100%;
+        position: absolute;
+        top: 10px;
+        .menu{ 
+            list-style: none;
+            padding: 0px;
+            .header-groups{
+                .company-data-mobile{
+                    display: none;
+                    width: auto;
+                    height: auto;
+                    @include noSelect();
+                    white-space: nowrap;
+                    position: relative;
+                    padding: 0 20px;
+                    border-bottom: 1px solid $colorGrey;
+                    .fa-building-o{
+                        font-size: 22px;
+                        padding: 20px 0;
+                        color: #DB2A17;
+                    }
+                    .label-item1{
+                        white-space: nowrap;
+                        @extend .font-medium;
+                        font-size: 14px;
+                        vertical-align: super;
+                    }
+                    .label-item2{
+                        @extend .font-regular;
+                        font-size: 13px;
+                        position: absolute;
+                        margin-left: 20px;
+                        top: 34px;
+                        text-decoration: underline;
+                        cursor: pointer;
+                        color:#00aeef;
+                    }
+                }
+            }
+                .item-menu{
+                padding: 6px 10px;
+                position: relative;
+                > a {
+                    cursor: pointer;
+                    @include noSelect();
+                    color: $colorGreyDark;
+                    text-decoration: none;
+                    display: block;
+                    width: 100%;
+                    i{
+                        color: $colorBlack;
+                        font-size: 14px;
+                    }
+                    span{
+                        padding-left: 6px; 
+                        @extend .font-regular;
+                        font-size: 14px;
+                    }
+                    .icon-caret{
+                        float: right;
+                        font-size: 16px;
+                        margin-right: 10px;
+                        &.fa-rotate-90 {
+                            @include transform(rotate(-90deg));
+                        }
+                    }
+                    // &:hover{
+                    //     padding-left:10px; 
+                    //     -webkit-transition: padding-left 1s; /* Safari */
+                    //      transition: padding-left 1s;
+                    // }
+                   
+                }
+                
+                
+                .sub-menu{
+                    @include noSelect();
+                    display: none;
+                    margin-top: 10px;
+                    list-style: none;
+                    position: relative;
+                    padding-left: 47px;
+                    &::before{
+                        content:"";
+                        display: block;
+                        position: absolute;
+                        z-index: 1;
+                        left: 30px;
+                        top: 0;
+                        bottom: 0;
+                        border-left: 1px solid $colorRedSure;
+                    }
+
+                    .item-sub-menu{
+                        padding: 4px 0px;
+                        position: relative;
+                        &::before{
+                            content: "";
+                            display: block;
+                            position: absolute;
+                            width: 10px;
+                            left: -16px;
+                            top: 12px;
+                            border-top: 1px solid $colorRedSure;
+                            z-index: 1;
+                        }
+                        >a {
+                            cursor: pointer;
+                            display: block;
+                            width: 100%;
+                            text-decoration: none;
+                            color: $colorGreyDark;
+                            span{
+                                width: 100%;
+                                @extend .font-regular;
+                                font-size: 14px;
+                            }
+                            &:hover{
+                                padding-left:4px; 
+                                @include transition(padding-left 0.4s);
+                            }
+                        }
+                        
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+@media screen and(min-width: 320px)and(max-width: 480px){
+    .header{
+        padding: 0 10px 0 0;
+        .header-groups{
+            width: auto;
+            
+        }
+        .logo-higia{
+            padding-left: 10px;
+        }
+        .company-data{
+            right: 36px;
+            .fa-building-o{
+                font-size: 22px;
+                padding: 20px 0;
+                color: #DB2A17;
+            }
+            .label-item1{
+                font-size: 12px;
+            }
+            .label-item2{
+                font-size: 11px;
+            }
+        }
+        .exit{
+            @include noSelect();
+            padding: 19px 0;
+            .fa-sign-out{
+                cursor: pointer;
+                margin-left: 0px;
+                font-size: 24px;
+                text-decoration: none;
+                color: $colorBlack;
+                &:hover{
+                    margin-top:0;
+                    color: #DB2A17; 
+                    text-decoration: none;
+                }
+            }
+        }
+    }
+    .item{
+        display: inline-block;
+        padding: 12px 0 0 0px;
+        position: absolute;
+        top: 8px;
+        left: 180px;
+        .fa-bars{
+            font-size: 24px;
+            color: $colorGreyDark;
+            cursor: pointer;
+        }
+    }
+}
+       
+@media screen and(min-width: 481px)and(max-width: 767px){
+    .item{
+        display: inline-block;
+        padding: 12px 0 0 10px;
+        position: absolute;
+        top: 8px;
+        left: 180px;
+        .fa-bars{
+            font-size: 24px;
+            color: $colorGreyDark;
+            cursor: pointer;
+        }
+    }   
+}

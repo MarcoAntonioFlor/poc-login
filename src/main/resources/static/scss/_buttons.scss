@@ -1,0 +1,126 @@
+.btn-section{
+    padding: 0 4px;
+}
+.btn-inline{
+    padding: 28px 0 0 0;
+}
+.btn-file {
+    position: absolute;
+    right: 12px;
+    top: 24px;
+    padding: 0;
+    margin-top: 10px;
+    border: none;
+    background: $colorWhite;
+    box-sizing: border-box;
+    display: inline-block;
+    color: $colorBlack;
+    width: auto;
+    font-size: 20px;
+    outline: none;
+}
+
+.btn-more{
+    outline: none;
+    background: $colorWhite;
+    border: 1px solid $colorRed;
+    color: $colorRed;
+    padding: 6px 10px;
+    @extend .font-medium;
+    font-size:12px;
+    @include border-radius(4px);
+    &:hover,&:focus,&:active{
+        background: pink;
+        -o-transition: all 0.218s;
+        -moz-transition: all 0.218s;
+        -webkit-transition: all 0.218s;
+        transition: all 0.218s;
+    }
+    .fa{
+        margin-right: 4px;
+    }
+}
+
+.btn-standard{
+    outline: none;
+    background: $colorRed;
+    position: relative;
+    @include border-radius(4px);
+    color: $colorWhite;
+    border: none;
+    @extend .font-medium;
+    font-size:14px;
+    padding: 6px 40px; 
+    &.btn-title{
+        float: right;
+        padding: 6px 20px;
+        margin-top: 8px;
+    }
+    &:hover,&:focus,&:active{
+        background: #E81A04;
+        -o-transition: all 0.218s;
+        -moz-transition: all 0.218s;
+        -webkit-transition: all 0.218s;
+        transition: all 0.218s;
+    }
+    .fa{
+        margin-right: 4px;
+    }
+}
+
+.btn-alternative{
+    outline: none;
+    background: $colorWhite;
+    border: 1px solid $colorRed;
+    position: relative;
+    @include border-radius(4px);
+    color: $colorRed;
+    @extend .font-medium;
+    font-size:14px;
+    padding: 5px 40px; 
+    &:hover,&:focus,&:active{
+        background: pink;
+        -o-transition: all 0.218s;
+        -moz-transition: all 0.218s;
+        -webkit-transition: all 0.218s;
+        transition: all 0.218s;
+    }
+}
+
+.btn-export-pdf{
+    background: $colorGrey;
+    color: $colorWhite;
+    border: none;
+    padding: 4px 18px;
+    @include border-radius(4px);
+    &:hover,&:focus,&:active{
+        background: $colorGrayBackMenu;
+        -o-transition: all 0.218s;
+        -moz-transition: all 0.218s;
+        -webkit-transition: all 0.218s;
+        transition: all 0.218s;  
+    }
+}
+
+@media screen and(min-width: 300px) and(max-width:420px){
+    .btn-inline{
+        padding:0;
+        float: right
+    }
+    .btn-more{
+        margin-top: 21px;
+    }
+    .btn-standard{
+        padding: 6px 20px; 
+    }
+    .btn-alternative{
+        padding: 5px 20px;
+    }
+}
+
+@media screen and(min-width: 420px) and(max-width:769px){
+    .btn-inline{
+        padding:0;
+        float: right
+    }
+}

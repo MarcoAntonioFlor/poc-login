@@ -1,0 +1,11 @@
+.groupTitle{
+    padding-left:6px;
+    float: left;
+    > h1{
+        max-width:400px;
+        @extend .font-medium;
+        margin-top: 10px;
+        font-size: 18px;
+        display: inline-block;
+    }
+}

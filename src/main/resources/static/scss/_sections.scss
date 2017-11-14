@@ -1,0 +1,118 @@
+
+.guias {
+    margin: 12px 0 0px 0;
+    padding-left: 0px;
+    list-style: none;
+    @include clearfix;
+    border-bottom: 1px solid $colorRedSure;
+  
+    > li {
+        position: relative;
+        display: block;
+        padding: 10px 15px;
+        @extend .font-medium;
+        font-size: 14px;
+        &.guia-ativa{
+            background:$colorWhite;
+            cursor: default;
+            border: 1px solid $colorRedSure;
+            @include border-radius(4px 4px 0 0);
+            border-bottom-color: transparent;
+        }
+        &.guia-inativa{
+            @include border-radius(4px 4px 0 0);
+            &:hover,&:focus {
+                text-decoration: underline;
+                color: $colorRedSure;
+                background-color: #BBBBBB;
+                cursor: pointer;
+            }
+        }
+        > a {
+            position: relative;
+            display: block;
+            border: none;
+            color: $colorRedSure;
+            &:hover,&:focus {
+                text-decoration: none;
+            }
+        }
+    }
+}
+
+.section-default{
+    background: $colorWhite;
+    margin-top: 10px;
+    border-radius: 10px;
+    //min-height: 500px;
+    //padding: 20px 30px;
+    .header-section{
+        border-bottom: 1px solid $colorRedSure;
+        box-sizing: border-box;
+        padding: 12px 20px;
+        h2{
+            @extend .font-medium;
+            font-size: 14px;
+            color: $colorRedSure;
+            margin: 0;
+        }
+    }
+    .content-section{
+        padding: 30px 30px;
+    }
+}
+
+.section-tabs{
+    background: $colorWhite;
+    margin: 20px 5px;
+    @include border-radius(10px);
+   // padding: 20px 30px;
+   // min-height: 500px;
+    .header-section{
+        border-bottom: 1px solid $colorRedSure;
+        box-sizing: border-box;
+        padding: 12px 20px;
+        h2{
+            @extend .font-medium;
+            font-size: 14px;
+            color: $colorRedSure;
+            margin: 0;
+        }
+    }
+    .content-section{
+        padding: 30px 30px;
+    }
+}
+
+.breadcrumbs{
+    @extend .font-medium;
+    padding: 6px 6px;
+    margin-bottom: 0px;
+    list-style: none;
+    background-color: initial;
+    border-radius: 4px;
+    li{
+        display: inline-block;
+        font-style: italic;
+        a{
+            color: $colorRedSure;
+            text-decoration: none;
+            &.link:hover{
+                    text-decoration: underline;
+                    cursor: pointer;
+            }
+        }
+        &.active{
+            color: $colorRedSure;
+            font-weight: 700;
+        }
+        span{
+            @extend .font-bold;
+            padding: 0 8px;
+            font-size: 10px;
+            color: $colorGreyDark;
+            vertical-align: top;
+        }
+        
+    }
+}

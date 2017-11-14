@@ -1,0 +1,422 @@
+html{
+    height: 100%;
+}
+
+body{
+    font-size: 12px !important;
+    @extend.font-regular;
+    overflow-y: scroll;
+    float: left;
+    position: relative;
+    min-height: 700px;
+    width: 100%;
+}
+
+.no-padding{
+    padding: 0;
+}
+
+.table-responsive{
+    padding-bottom: 20px;
+}
+
+/*reset multiselect*/
+.bootstrap-select{
+    width: auto;
+    .dropdown-toggle{
+        border:none;
+        background: $colorWhite !important;
+        @include border-radius(6px);
+        @extend .font-regular;
+        font-size: 13px;
+        height: 100%;
+        &.bs-placeholder{
+            color: $colorGreyBorderCampo;
+            &:hover{
+                color: initial;
+            }
+        } &.btn-default{
+            padding: 10px 12px;
+            background: $colorWhite;
+            border: none;
+            outline: none;
+            &:hover,&:active{
+                background: $colorWhite;
+                color: $colorBlack;
+            }
+        }
+        .filter-option{
+            @extend .font-regular;
+            color: $colorBlack; 
+        }
+    }
+    .dropdown-menu{
+        >li{
+            >a{
+                @extend .font-regular;
+                color: $colorBlack;
+                font-size: 13px;
+            }
+        }
+    }
+}
+
+/*reset datepicker month*/
+.datepicker{
+    &.dropdown-menu{
+        border: 1px solid $colorGreyBorderCampo;
+    }
+    thead{
+        tr{
+            th{ 
+                font-weight: normal;
+                color:$colorGrayBackMenu;
+                @extend .font-bold;
+                font-size: 14px;
+                color: $colorRed;
+                &.datepicker-switch{
+                    cursor: pointer; 
+                }
+                &.prev{
+                    cursor: pointer;
+                }
+                &.next{
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+    tbody{
+        tr{
+            td{
+                @extend .font-medium;
+                font-size: 12px; 
+                &.old{
+                    color: $colorBlack;
+                }
+                &.disabled{
+                    color: $colorGrey;
+                    &:hover{
+                        color: $colorGrey;
+                    }   
+                }
+                // &.today, .day{
+                //      color: #fff;
+                //      background: pink;
+                //      border-color: pink !important;
+                //     &:hover,:active{
+                //         background:colorRed;
+                //         border-color: $colorRed !important;
+                //     }
+                // }
+                &.active,.day{
+                    color: #fff !important;
+                    background-color: $colorRed !important;
+                    border-color: $colorRed !important;
+                }
+            }
+        }
+    }
+    &:after,&:before{
+        border: none !important;
+    } 
+
+   .datepicker-months,.datepicker-years,.datepicker-decades,.datepicker-centuries{
+        table{
+            thead{
+
+            }
+            tbody{
+                td{
+                    >span {
+                        &.active{
+                            color: #fff !important;
+                            background-color: $colorRed !important;
+                            border-color: $colorRed !important;
+                        }
+                        &.disabled{
+                            color: $colorGrey;
+                            text-decoration: line-through; 
+                        }
+                        
+                    }
+                }
+            }
+        }
+    }
+}
+.table-responsive{
+    overflow-x: hidden;
+}
+
+/*reset datatables*/
+div >.dataTables_wrapper{
+    .dataTables_length{
+        label{
+            font-weight: normal;
+        }
+    }
+    .dataTables_filter{
+        label{
+            font-weight: normal;
+        }
+    }
+    .dataTable{
+        text-align: center;
+        width: 100%;
+        > thead{
+             tr {
+                background-color: $colorRed;
+                color: $colorWhite;
+                > th {
+                    white-space: nowrap;
+                    outline: none;
+                    @extend .font-medium;
+                    border: 1px solid $colorWhite; 
+                    &:first-child {
+                        @include border-radius(4px 0 0 4px);
+                    }
+
+                    &:last-child {
+                        @include border-radius(0 4px 4px 0);
+                    }
+                    .icon-order-by {
+                        display: block;
+                        margin: 7px auto 0;
+                    }
+                    span.ci-th-wrapped {
+                        display: inline-block;
+                        position: absolute;
+                        height: 100%;
+                        width: 100%;
+                        top: 0;
+                        left: 0;
+                        text-indent: -9999px;
+                        content: ".";
+                    }
+                    /*icones ordenação grid*/
+                    &.sorting_asc{
+                        background : none;
+                        //background-image: url(../images/data-table-icons/sort_asc.png);
+                        //background-repeat: no-repeat;
+                        //background-position: center right;
+                        cursor: pointer;
+                    }
+                    &.sorting{
+                        background : none;
+                        //background-image: url(../images/data-table-icons/sort_both.png);
+                        //background-repeat: no-repeat;
+                        //background-position: center right;
+                        cursor: pointer;
+                    }
+                }
+            }
+        }
+        > tbody{
+            > tr {
+                @extend .font-regular;
+                font-size: 13px;
+                color: $colorBlack;
+                vertical-align: initial;
+                &.odd {
+                    background-color: $colorGreyLineGrids !important ;
+                }
+                &.even {
+                    background-color: $colorWhite !important;
+                }
+                td{
+                    white-space: nowrap;
+                    border: 1px solid $colorWhite;
+                    line-height: 12px;
+                    padding: 11px 10px;
+                    .fa{
+                        font-size: 18px;
+                        cursor: pointer;
+                        outline: none;
+                        padding: 0;    
+                    }
+                    a {
+                        color: initial;
+                    }
+                }
+            }
+        }
+        &.no-footer{
+            border: none;
+        } 
+    }
+    .dataTables_length{
+        float: right;
+        padding-right: 10px;
+        margin-left: 4px;
+        select{
+            height: 34px;
+            @include border-radius(4px);
+        }
+    }
+    .dataTables_filter{
+        float: right;
+        input{
+            @extend .font-regular;
+            font-size: 13px;
+            height: 34px;
+            border-radius: 6px;
+            border: 1px solid $colorGreyBorderCampo;
+            color: $colorBlack;
+            outline: none;
+            padding: 0 13px;
+            
+        }
+    }
+    /*string qtd por listagem não usado
+    .dataTables_info{
+        clear: both;
+        float: left;
+        color:$colorBlack;
+        display: none;
+    }*/
+    .dataTables_paginate{
+        text-align: center;
+        padding-top: 10px;
+        color:$colorBlack;
+
+        .paginate_button{
+            box-sizing: border-box;
+            display: inline-block;
+            min-width: 1.5em;
+            padding: 8px 14px;
+            margin-left: 1px;
+            text-align: center;
+            text-decoration: none;
+            cursor: pointer;
+            color: $colorRed ;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            &.current{
+                color: $colorRed ;
+                border: 1px solid #979797;
+                background-color: $colorGreyLineGrids;
+            }
+            &:hover{
+                outline: none;
+                background-color: $colorGreyLineGrids;
+            }
+            &.disabled{
+                padding: 8px 14px;
+                cursor: default;
+                color: #666 ;
+                background: transparent;
+                box-shadow: none;
+            }
+        }
+    }
+}
+
+/*buttons exportar*/
+.dt-buttons{
+    float: right;
+    .dt-button{
+        position: relative;
+        display: inline-block;
+        box-sizing: border-box;
+        margin-right: 0.333em;
+        margin-left: 4px;
+        padding: 8px 8px;
+        cursor: pointer;
+        white-space: nowrap;
+        .fa-file-excel-o{
+            font-size: 20px;
+            color: green;
+        }
+        
+    }
+}
+
+//reset daterangepicker
+.daterangepicker{
+    border: 1px solid $colorGreyBorderCampo;
+    thead{
+        tr{
+            th{
+                font-weight: normal;
+                color:$colorGrayBackMenu;
+                @extend .font-bold;
+                font-size: 14px;
+                color: $colorRed;
+                &.datepicker-switch{
+                    cursor: pointer; 
+                }
+                &.prev{
+                    cursor: pointer;
+                }
+                &.next{
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+    tbody{
+        tr{
+            td{
+                @extend .font-medium;
+                font-size: 12px; 
+                &.old{
+                    color: $colorBlack;
+                }
+                &.disabled{
+                    color: $colorGrey; 
+                    &:hover{
+                        color: $colorGrey;
+                    }   
+                }
+                &.in-range{
+                    background-color: $colorPink;
+                }
+                &.active{
+                    &.start-date{
+                            color: $colorWhite !important;
+                            background-color: $colorRed !important;
+                    }
+                    &.end-date{
+                        color: #fff !important;
+                        background-color: $colorRed !important;
+                    }
+                }
+                &.off{
+                    &.active{
+                        color:#999 !important;
+                        background-color: $colorWhite !important;
+                    }
+                    &.available:hover {
+                        background-color: #eee;
+                    }
+                }
+            }
+        }
+    }
+    .range_inputs{
+        .applyBtn{
+             background: $colorRed;
+            @include border-radius(4px);
+            color: $colorWhite;
+            border: none;
+            @extend .font-medium;
+            font-size: 12px;
+            padding: 6px 20px; 
+            &:hover,&:focus,&:active{
+                background: #E81A04;
+                -o-transition: all 0.218s;
+                -moz-transition: all 0.218s;
+                -webkit-transition: all 0.218s;
+                transition: all 0.218s;
+                
+            }
+        }
+    }
+    &::before{
+        border-right: 7px solid transparent;
+        border-left: 7px solid transparent;
+        border-bottom: 7px solid $colorGreyBorderCampo;
+    }
+   
+}

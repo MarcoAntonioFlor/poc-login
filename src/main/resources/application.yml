@@ -1,0 +1,100 @@
+project.version: '@project.version@'
+
+higiaapi:
+    basepath: 
+        http://localhost:9090/
+    authentication: 
+        username: postgres
+        password: root
+
+securityDefinitions:
+  basicAuth:
+    type: basic
+
+#google.recaptcha.key.site: 6LcLNzMUAAAAALkGQ0-OuRnVGDSmypC0OqN3n_L9
+#google.recaptcha.key.secret: 6LcLNzMUAAAAAIx86kUmslOay1BviEk5X3CtJgct
+google.recaptcha.key.site: 6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI
+google.recaptcha.key.secret: 6LeIxAcTAAAAAGG-vFI1TnRWxMZNFuojJ4WifJWe
+google.recaptcha.key.url: https://www.google.com/recaptcha/api/siteverify?
+google.recaptcha.key.maxAttempt: 4
+proxy.host: 10.122.80.197
+proxy.port: 3128
+---
+
+spring:
+    profiles: dev
+    application:
+        name: dasa-higia-web-CHANGEREVISION
+    jmx:
+        default-domain: dasa-higia-web-CHANGEREVISION
+
+higiaapi:
+    basepath: 
+        http://higia-dev-backend.azurewebsites.net/
+    authentication:
+        username: dasa_higia_dev
+        password: gVDwRNx2
+
+logging:
+    level:
+          org:
+              springframework:
+                              web: DEBUG
+              thymeleaf: TRACE
+
+google.recaptcha.key.site: 6LcLNzMUAAAAALkGQ0-OuRnVGDSmypC0OqN3n_L9
+google.recaptcha.key.secret: 6LcLNzMUAAAAAIx86kUmslOay1BviEk5X3CtJgct
+google.recaptcha.key.url: https://www.google.com/recaptcha/api/siteverify?
+google.recaptcha.key.maxAttempt: 4              
+---
+
+spring:
+    profiles: hm
+    application:
+        name: dasa-higia-web-CHANGEREVISION
+    jmx:
+        default-domain: dasa-higia-web-CHANGEREVISION
+
+higiaapi:
+    basepath: http://higia-hm-backend.azurewebsites.net/
+    authentication:
+        username: projecthigia
+        password: Q1w2e3r40
+
+logging:
+    level:
+          org:
+              springframework:
+                              web: DEBUG
+              thymeleaf: TRACE
+
+google.recaptcha.key.site: 6LcLNzMUAAAAALkGQ0-OuRnVGDSmypC0OqN3n_L9
+google.recaptcha.key.secret: 6LcLNzMUAAAAAIx86kUmslOay1BviEk5X3CtJgct
+google.recaptcha.key.url: https://www.google.com/recaptcha/api/siteverify?
+google.recaptcha.key.maxAttempt: 4
+---
+
+spring:
+    profiles: prod
+    application:
+        name: dasa-higia-web-CHANGEREVISION
+    jmx:
+        default-domain: dasa-higia-web-CHANGEREVISION
+
+higiaapi:
+    basepath: http://higia-prod-backend.azurewebsites.net/
+    authentication:
+        username: higia-prod-db
+        password: h1G1A3514c01sab0a
+
+logging:
+    level:
+          org:
+              springframework:
+                              web: DEBUG
+              thymeleaf: TRACE
+              
+google.recaptcha.key.site: 6LcLNzMUAAAAALkGQ0-OuRnVGDSmypC0OqN3n_L9
+google.recaptcha.key.secret: 6LcLNzMUAAAAAIx86kUmslOay1BviEk5X3CtJgct
+google.recaptcha.key.url: https://www.google.com/recaptcha/api/siteverify?
+google.recaptcha.key.maxAttempt: 4

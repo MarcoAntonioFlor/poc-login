@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+
+
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+	</head>
+
+	<div id="fragement-menu" th:fragment="header-menu" >
+		<header class="header">
+			<div class="header-groups">
+				<span class="logo-higia">
+					<div class="sprites-logo-higia"></div>
+				</span>
+			</div>
+
+			
+			<div class="pull-right">
+				<div class="header-groups hidden-xs">
+					<th:block th:if="${loginSessionBean != null}">
+						<th:block th:if="${loginSessionBean.tipoPerfil} == ${T(br.com.dasa.enumerator.TipoPerfil).MEDICO}"> 
+							<div class="company-data">
+								<i class="fa fa-building-o" aria-hidden="true"></i>
+								<span id="nameEmpresa" class="label-item1"
+									th:text="${loginSessionBean.empresaSelecionada} ? 
+										${loginSessionBean.empresaSelecionada.razaoSocial} : 'Selecione a empresa'"> 
+								</span>
+								<br></br>
+								<th:block th:unless="${#lists.isEmpty(loginSessionBean.empresas)}">
+										<span class="label-item2" 
+												data-toggle="modal" 
+												data-target="#modalSelecaoEmpresa"
+												th:text="${#lists.size(loginSessionBean.empresas)>1} ? 'Trocar empresa'">
+										</span>
+								</th:block>
+							</div>
+						</th:block> 
+					</th:block>
+				</div>
+				<div class="header-groups hidden-xs">
+					<div class="personal-data">
+						<i class="fa fa-user-circle" aria-hidden="true"></i>
+						<span id="campoSaudacao" class="label-item1"></span>
+						<br></br>
+						<span id="nameUsuario" class="label-item2" th:text="${loginSessionBean.nome}"></span>
+					</div>	
+				</div>
+				<div class="header-groups">
+					<div class="exit">
+						<a data-toggle="modal" data-target="#modalSair">
+							<i class="fa fa-sign-out" title="Sair" aria-hidden="true"></i>
+						</a>
+					</div>	
+				</div>
+			</div>
+		</header>
+
+
+		<input type="checkbox" id="check"></input>
+		<label class="item" for="check"><i class="fa fa-bars" aria-hidden="true"></i></label>
+
+		<aside class="barra-lateral">
+			<nav>
+				<ul class="menu">
+					<li>
+						<div class="header-groups hidden-sm hidden-md hidden-lg">
+							<th:block th:if="${loginSessionBean != null}">
+								<th:block th:if="${loginSessionBean.tipoPerfil} == ${T(br.com.dasa.enumerator.TipoPerfil).MEDICO}"> 
+									<div class="company-data-mobile">
+										<i class="fa fa-building-o" aria-hidden="true"></i>
+										<span id="nameEmpresaMobile" class="label-item1"
+											th:text="${loginSessionBean.empresaSelecionada} ? 
+												${loginSessionBean.empresaSelecionada.razaoSocial} : 'Selecione a empresa'"> 
+										</span>
+										<br></br>
+										<th:block th:unless="${#lists.isEmpty(loginSessionBean.empresas)}">
+												<span class="label-item2" 
+														data-toggle="modal" 
+														data-target="#modalSelecaoEmpresa"
+														th:text="${#lists.size(loginSessionBean.empresas)>1} ? 'Trocar empresa'">
+												</span>
+										</th:block>
+									</div>
+								</th:block> 
+							</th:block>
+						</div>
+					</li>
+					<li class="item-menu">
+						
+						<a>
+							<i class="fa fa-check" aria-hidden="true"></i>
+							<span>Pagamentos</span>
+							<b class="icon-caret">
+								<em class="fa fa-caret-left"></em>
+							</b>
+						</a>
+						
+						<ul class="sub-menu">
+							<th:block sec:authorize="hasRole('UPLOAD_NOTA_FISCAL')">
+								<li class="item-sub-menu">
+									<a th:href="@{/uploadNotaFiscal}"><span>Upload nota fiscal</span></a>
+								</li>
+							</th:block>
+							<th:block sec:authorize="hasRole('UPLOAD_RESUMO_MEDICO')">
+								<li class="item-sub-menu">
+									<a th:href="@{/uploadResumoMedico}"><span>Upload resumo médico</span></a>
+								</li>
+							</th:block>
+							<li class="item-sub-menu">
+								<a th:href="@{/consultarNotaFiscal}"><span>Consultar nota fiscal</span></a>
+							</li>
+							<li class="item-sub-menu">
+								<a th:href="@{/consultarDemonstrativoIndividual}"><span>Consultar demonstrativo</span></a>
+							</li>
+						</ul>
+					</li>
+					
+					<th:block sec:authorize="hasRole('CADASTROS_MEDICO_EMPRESA')">
+						<li class="item-menu">
+							<a>
+								<i class="fa fa-user-plus" aria-hidden="true"></i>
+								<span>Cadastros</span>
+								<b class="icon-caret">
+									<em class="fa fa-caret-left"></em>
+								</b>
+							</a>
+							<ul class="sub-menu">
+								<li class="item-sub-menu">
+									<a th:href="@{/consultarEmpresaMedica}"><span>Cadastro empresa médica</span></a>
+								</li>
+								<li class="item-sub-menu">
+									<a th:href="@{/consultarMedico}"><span>Cadastro médico</span></a>
+								</li>
+							</ul>
+						</li>
+					</th:block>				
+				</ul>
+			</nav>
+		</aside>
+
+
+		<th:block th:if="${loginSessionBean != null}">
+			<th:block th:if="${loginSessionBean.tipoPerfil} == ${T(br.com.dasa.enumerator.TipoPerfil).MEDICO}">
+				<div id="modalSelecaoEmpresa" class="modal fade" role="dialog">
+					<div class="modal-dialog">
+						<!-- Modal content-->
+						<div class="modal-content">
+				
+							<div class="modal-header">
+								<button type="button" class="close" data-dismiss="modal">&times;</button>
+								<h4 class="modal-title">Selecionar empresa</h4>
+							</div>
+				
+							<div class="modal-body">
+								<p class="pad10-bottom">Selecione a empresa que deseja acessar:</p>
+								<div class="row">
+									<div class="table-modal col-xs-12">
+										<div class="thead-modal">
+											<div class="col-xs-12 item-th">Empresa</div>
+										</div>
+										<div class="tbody-modal">
+											<th:block th:if="${not #lists.isEmpty(loginSessionBean.empresas)}">
+												<th:block th:each="empresa : ${loginSessionBean.empresas}"> 
+													<div class="item-tr-modal" id="empresaSelecionada">
+														<div class="row">
+															<div class="col-xs-1">
+																<span class="ci-radio-circle">
+																	<input th:type="radio" 
+																		th:id="'empresaSelecionada' + ${empresa.id}"
+																		name="idEmpresaSelecionada"
+																		th:value="*{empresa.id}"
+																		th:checked="(${loginSessionBean.empresaSelecionada.id} == ${empresa.id}) ? 'checked'"/>
+																		<span></span>
+																</span>
+															</div>
+															<div class="col-xs-11">
+																<label class="campo-empresa" th:for="'empresaSelecionada' + ${empresa.id}" 
+																		th:text="${empresa.razaoSocial}">
+																</label>
+															</div>
+														</div>
+													</div>
+												</th:block>
+											</th:block>
+										</div>
+									</div>
+								</div>
+								<div class="modal-footer">
+									<div class="text-center">
+										<button id="btnSelecionarEmpresa" type="button" class="btn-standard">Confirmar</button>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</th:block>
+		</th:block>
+
+
+		<div id="modalErroSelecaoEmpresa" class="modal fade" data-backdrop="static" role="dialog">
+			<div class="modal-dialog">
+				<!-- Modal content-->
+				<div class="modal-content">
+					<div class="modal-header">
+						<h4 class="modal-title">Selecionar empresa</h4>
+					</div>
+					<div class="modal-body">
+						<span class="erro fa fa-exclamation-triangle"></span>
+						<p>Ocorreu um erro ao tentar selecionar a empresa, tente novamente mais tarde.</p>
+					</div>
+					<div class="modal-footer">
+						<div class="text-center">
+							<button type="button" class="btn-standard" data-dismiss="modal">Ok</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div id="modalSair" class="modal fade" role="dialog">
+			<div class="modal-dialog">
+				<!-- Modal content-->
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title">Confirmar saída</h4>
+					</div>
+					<div class="modal-body">
+						<p>Você deseja confirmar a saída?</p>
+					</div>
+					<div class="modal-footer">
+						<div class="row">
+							<div class="text-center">	
+								<form th:action="@{/logout}" method="post">
+									<button type="button" class="btn-alternative" data-dismiss="modal">Não</button>
+									<input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" /> 
+									<button type="submit" class="btn-standard" >Sim</button>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div th:include="fragments/scripts::imports-js"></div>
+
+		<div th:if="${messageReturn != null}">
+			<div th:include="fragments/modalResposta :: exibeModal(retornoDTO = ${messageReturn})"></div>
+		</div>  
+	</div>
+
+	<th:block th:include="fragments/version :: version" />
+
+<!--  <script type="text/javascript" th:src="@{/js/libs/moment.min.js}"></script>  -->
+</html>

@@ -1,0 +1,42 @@
+    /*mobile*/
+    @media (max-width: 768px){
+        header {
+            &.container{
+                padding: 0;
+                > #header-content{
+                    padding: 14px 0;
+                    > div, #header-navigation{
+                        .navbar{
+                            >.navbar-collapse{
+                                border: initial;
+                                > .navbar-nav{
+                                    .open > a,a:focus {
+                                        border-bottom: none
+                                    }
+                                    >.dropdown{
+                                        background: #FFFFFF;
+                                        > a{
+                                            font-size: 16px;
+                                            >.caret{
+                                                display: inline-block;
+                                                float: right;
+                                                transition: all ease 0.4s;
+                                                
+                                            }
+                                            // >.caret:active{
+                                            //     background:red;
+                                            //     -ms-transform: rotate(180deg); /* IE 9 */
+                                            //     -webkit-transform: rotate(180deg); /* Chrome, Safari, Opera */
+                                            //     transform: rotate(180deg);
+                                            // }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }   
+    }
+

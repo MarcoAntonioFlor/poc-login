@@ -1,0 +1,176 @@
+.form-default{
+   .row { 
+       margin: 0;
+        .form-group{
+            padding: 0 4px;
+            margin-bottom: 20px;
+            .rotulo{
+                @extend .font-medium;
+                font-size: 14px;
+                font-weight: normal;
+            }
+            >.input-group{
+                &.input-daterange{
+                    >.form-control{
+                        &:nth-child(1){
+                            margin-right: 10px;
+                        }
+                    }
+                    .input-group-addon{
+                        background: none;
+                        border: none;
+                        font-size: 20px;
+                        color: $colorBlack;
+                    }
+                }
+                &.input-dateSimple,&.input-monthSimple{
+                    width: 100%;
+                    >.form-control{
+                        @include border-radius(4px 0px 0px 4px) ;
+                        border: 1px solid $colorGreyBorderCampo;
+                        border-right: none;
+                        &:nth-child(1){
+                            margin-right: 6px;
+                        }
+                    }
+                    .input-group-addon{
+                        background: none;
+                        @include border-radius(0px 4px 4px 0px) ;
+                        border: 1px solid $colorGreyBorderCampo;
+                        border-left: none;
+                        font-size: 20px;
+                        color: $colorBlack;
+                        i{
+                            width: auto;
+                            height: auto;
+                            cursor: pointer;
+                        }
+                    }
+                }
+               > .form-control{
+                    @extend .font-regular;
+                    text-align: left;
+                    font-size: 13px;
+                    height: 38px;
+                    @include border-radius(4px 4px 4px 4px);
+                    border: 1px solid $colorGreyBorderCampo;
+                    color: $colorBlack;
+                    &::placeholder{
+                        color: $colorGreyBorderCampo
+                    }
+                }
+            }
+             >select{
+                outline: none;
+                background-color: white;
+                outline: none;
+                border: 1px solid $colorGreyBorderCampo;
+                @include border-radius(4px);
+                padding: 6px 0px 6px 12px;
+                @extend .font-regular;
+                text-align: left;
+                font-size: 13px;
+                height: 38px;
+                display: block;
+                width: 100%;
+                /* reset */
+                -webkit-box-sizing: border-box;
+                -moz-box-sizing: border-box;
+                -webkit-appearance: none;
+                &.form-control {
+                    background: url('/images/arrow-down-select.png') no-repeat right;
+                }
+            }
+            
+            >.radio-inline{
+                @extend .font-regular;
+                font-size: 13px;
+                position: relative;
+                font-weight: normal;
+                color: $colorBlack;
+                padding: 0;
+                margin: 0;
+                 input[type="checkbox"] {
+                    position: relative;
+                    margin-left: 0px !important;
+                }
+            }
+            >.checkbox-inline{
+                @extend .font-regular;
+                font-size: 13px;
+                position: relative;
+                font-weight: normal;
+                color: $colorBlack;
+                padding: 0;
+            }
+            >.form-control{
+                @extend .font-regular;
+                font-size: 13px;
+                height: 38px;
+                border-radius: 4px;
+                border: 1px solid $colorGreyBorderCampo;
+                color: $colorBlack;
+                &::placeholder{
+                    color: $colorGreyBorderCampo
+                }
+            }
+            .form-file-hidden {
+                width: 0;
+                height: 0;;
+            }
+            .form-file {
+                @extend .form-control;
+                position: relative;
+                padding: 0 12px;
+                box-sizing: border-box;
+                vertical-align: middle;
+                width: 100%;
+            }
+            .form-text {
+                @extend .font-regular;
+                font-size: 13px;
+                color: $colorBlack;
+                text-align: justify;
+            }
+            .has-error,.help-block{
+                font-size: 13px;
+                color: red;
+                position: absolute;
+                padding: 0;
+                margin: 0 4px;
+            }
+        }
+   }
+}
+.ci-checkbox-circle,.ci-radio-circle{
+    position: relative;
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    input[type="checkbox"],input[type="radio"]{
+        margin: 0;
+        position: absolute;
+        width:100%;
+        height: 100%;
+        top:0px;
+        left:0px;
+        @include opacity(0);
+        cursor:pointer;
+        z-index: 1;
+        &~span{
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top:0px;
+            left:0px;
+            margin:0px;
+            box-sizing:border-box;
+            border:1px solid  $colorRed;
+            @include border-radius(50%);
+            background-color:transparent;
+            transition: background-color ease 0.2s,border-color 0.8s;
+        }
+        &:checked~span{background-color: $colorRed;
+        }
+    }
+}

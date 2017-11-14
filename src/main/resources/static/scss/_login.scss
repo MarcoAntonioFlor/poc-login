@@ -1,0 +1,253 @@
+.grecaptcha-badge{
+    display: none;
+}
+.fundoMedico {
+    background-image: url("../images/medica_digitando.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow-y: auto; 
+}
+
+.card {
+    @extend .font-light;
+    @extend .backGreySure;
+    padding: 40px 44px 70px 42px;
+    margin: 0 auto 25px;
+    max-width: 390px;
+    margin-top: 80px;
+    @include border-radius(8px);
+    @include box-shadow(4px 4px 8px #b9b9b9);
+
+    .profile-img-card {
+        border: none;
+        margin: 0 auto 10px;
+        display: block;
+    }
+
+    .form-signin{
+        .alert{
+             padding: 20px 0 10px 0;
+             border: none;
+             margin: 0;
+            &.alert-danger{
+                background-color: initial; 
+                color: red;
+                text-align: center;
+                @extend .font-regular;
+                font-size: 13px;
+            }
+        } 
+        .form-group{
+            @extend .font-light;
+            font-size: 16px;
+            padding: 20px 0 0 0;
+            margin: 0;
+            .form-control{
+                margin: 7px 0 ;
+                width: 100%;
+                border: 1px solid $colorGreyBorderCampo;
+                background: $colorWhite;
+                height: 40px;
+                -moz-box-sizing: border-box;
+                -webkit-box-sizing: border-box;
+                box-sizing: border-box;
+                color: $colorBlack;
+                &::placeholder{
+                    color: $colorGreyBorderCampo
+                }
+            }
+            iframe{
+                @include border-radius(4px);
+                border: 1px solid $colorGreyBorderCampo;
+            }
+        }
+    }
+    // .form-signin-recaptcha{
+    //     .form-group{
+    //         iframe{
+    //             @include border-radius(4px);
+    //             border: 1px solid $colorGreyBorderCampo;
+    //         }
+    //         .alert{
+    //             padding: 20px 0 0 0;
+    //             border: none;
+    //             margin: 0;
+    //             &.alert-danger{
+    //                 background-color: initial; 
+    //                 color: red;
+    //                 text-align: center;
+    //                 @extend .font-regular;
+    //                 font-size: 13px;
+    //             }
+    //         }    
+    //     }
+    // }
+
+    .btn {
+        @extend .font-light;
+        font-size: 16px;
+        font-weight: normal;
+        height: 40px;
+        width: 100%;
+        -moz-user-select: none;
+        -webkit-user-select: none;
+        user-select: none;
+        cursor: pointer;
+        &.btn-signin {
+            @include border-radius(4px);
+            background-color: $colorRed;
+            color: $colorWhite;
+            padding: 0px;
+            -moz-border-radius: 3px;
+            -webkit-border-radius: 3px;
+            border-radius: 3px;
+            border: none;
+            -o-transition: all 0.218s;
+            -moz-transition: all 0.218s;
+            -webkit-transition: all 0.218s;
+            transition: all 0.218s;
+            &:active,&:hover,&:focus{
+                background: #E81A04;
+            } 
+        }
+    }
+    
+    .forgot-password {
+        font-size: 14px;
+        float: right;
+        color: $colorGreyDark;
+        clear: both;
+        &:active,&:hover,&:focus{
+            text-decoration: underline;
+            color: $colorGreyDark;
+        }
+    }
+    .menu-register{
+        margin-top: 8px;
+        float: right;
+        font-size: 14px;
+        height: 20px;
+        cursor: pointer;
+        .register{
+            float: right;
+            color: $colorGreyDark;
+            &:hover{
+                text-decoration: underline;
+            }
+            .fa,.fa-sort-desc{
+                vertical-align: text-top;
+            }
+        }
+        .menu-internal{
+            display: none;
+            a{
+                float: right;
+                color: $colorGreyDark;
+                &.register-user-itens{
+                    :hover{
+                        text-decoration: underline;
+                    }
+                }
+            }
+        }
+        
+        //animation
+        // &:active{
+        //    transition:all 0.3s ease;
+        //    display: table;
+        //    height: 60px;
+        //    .fa,.fa-sort-desc-rotate{
+        //         transition:all 0.3s ease;
+        //         -webkit-transform: rotate(180deg);
+        //         -ms-transform: rotate(180deg);
+        //         transform: rotate(180deg);
+        //    }
+        //    &.register-user-itens{
+        //        display: block;
+        //    }
+        // }   
+    }
+}
+
+.version{
+    bottom: 0;
+    position: absolute;
+    padding: 10px;
+    font-size: 11px;
+}
+
+
+// .profile-name-card {
+//     font-size: 16px;
+//     font-weight: bold;
+//     text-align: center;
+//     margin: 10px 0 0;
+//     min-height: 1em;
+// }
+/*tooltip bootstrap*/
+
+        .tooltip > 
+		.tooltip-inner {
+			background-color: #FFF; 
+			color: black; 
+			border: 1px solid #898989;
+			padding: 10px;
+			font-size: 12px;
+		}
+
+		/* Tooltip on top */
+		.tooltip.top > .tooltip-arrow {
+			border-top: 5px solid grey;
+		}
+
+		/* Tooltip on bottom */
+		.tooltip.bottom > .tooltip-arrow {
+			border-bottom: 5px solid grey;
+		}
+
+		/* Tooltip on left */
+		.tooltip.left > .tooltip-arrow:before {
+			border-left: 5px solid grey;
+			background-color: #FFF;
+			
+		}
+		/* Tooltip on right */
+		.tooltip.right > .tooltip-arrow {
+			border-right: 5px solid grey;
+		}
+
+@media screen and(min-width: 220px) and(max-width:419px){
+    .fundoMedico {
+        background-color: #F2F2F2;
+        background-image: none;
+    }
+    .card{
+        border: 1px solid #898989;
+        padding: 30px 25px 70px 24px;
+        width: auto;
+        margin: 60px 10px 0 10px;
+    }
+   .tooltip{
+        visibility: hidden;
+    }
+    .g-recaptcha { 
+        transform:scale(0.77); 
+        -webkit-transform:scale(0.77); 
+        transform-origin:0 0; 
+        -webkit-transform-origin:0 0; 
+    }
+    .form-group{
+        iframe{
+            
+        }
+    }
+}
+@media screen and(min-width: 420px) and(max-width:767px){
+    .tooltip{
+       visibility: hidden;
+    }
+}
+
+@media screen and (max-height: 575px){ 
+   
+}

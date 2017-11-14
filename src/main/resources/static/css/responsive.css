@@ -1,0 +1,28 @@
+/*mobile*/
+@media (max-width: 768px) {
+  header.container {
+    padding: 0;
+  }
+  header.container > #header-content {
+    padding: 14px 0;
+  }
+  header.container > #header-content > div .navbar > .navbar-collapse, header.container > #header-content #header-navigation .navbar > .navbar-collapse {
+    border: initial;
+  }
+  header.container > #header-content > div .navbar > .navbar-collapse > .navbar-nav .open > a, header.container > #header-content > div .navbar > .navbar-collapse > .navbar-nav a:focus, header.container > #header-content #header-navigation .navbar > .navbar-collapse > .navbar-nav .open > a, header.container > #header-content #header-navigation .navbar > .navbar-collapse > .navbar-nav a:focus {
+    border-bottom: none;
+  }
+  header.container > #header-content > div .navbar > .navbar-collapse > .navbar-nav > .dropdown, header.container > #header-content #header-navigation .navbar > .navbar-collapse > .navbar-nav > .dropdown {
+    background: #FFFFFF;
+  }
+  header.container > #header-content > div .navbar > .navbar-collapse > .navbar-nav > .dropdown > a, header.container > #header-content #header-navigation .navbar > .navbar-collapse > .navbar-nav > .dropdown > a {
+    font-size: 16px;
+  }
+  header.container > #header-content > div .navbar > .navbar-collapse > .navbar-nav > .dropdown > a > .caret, header.container > #header-content #header-navigation .navbar > .navbar-collapse > .navbar-nav > .dropdown > a > .caret {
+    display: inline-block;
+    float: right;
+    transition: all ease 0.4s;
+  }
+}
+
+/*# sourceMappingURL=responsive.css.map */

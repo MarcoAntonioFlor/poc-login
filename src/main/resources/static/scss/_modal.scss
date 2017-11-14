@@ -1,0 +1,55 @@
+.modal-dialog{
+    
+    .modal-content{
+        @extend .font-medium;
+        font-size: 14px;
+        .modal-header{
+            padding: 15px 30px 15px 29px;
+            border: none;
+        }
+        .modal-body{
+            @extend .font-regular;
+            font-size: 14px;
+            min-height: 80px;
+            padding: 10px 50px 10px 50px;
+        
+            .ci-radio-circle{
+                margin-top: 3px;
+            }
+
+            .erro{
+                color: red;
+                font-size: 22px; 
+                float: left;
+                margin-right: 8px;
+            }
+            .sucesso{
+                color: green;
+                font-size: 22px; 
+                float: left;
+                margin-right: 8px;
+            }
+            p{
+                margin: 4px 0 0 0;
+                line-height: 15px;  
+            }
+            .modal-content-scroll{
+                border: solid 1px #F2F2F2;
+                font-size: 13px;
+                color: #333333;
+                @include setLimitHeight(170px);
+                text-align: justify;
+                padding: 0px 8px;
+                vertical-align: initial;
+                max-height: 170px;
+                overflow-x: hidden;
+                overflow-y: auto;
+                @include border-radius(8px);
+            }
+        }
+        .modal-footer{
+            border:none;
+            padding: 15px 15px 20px 15px;
+        }
+    }
+}

@@ -1,0 +1,79 @@
+@mixin transform($transform) {
+    -webkit-transform: $transform;
+    -khtml-transform: $transform;
+    -apple-transform: $transform;
+    -moz-transform: $transform;
+    -ms-transform: $transform;
+    -o-transform: $transform;
+    transform: $transform;
+}
+
+@mixin transition($transition) {
+    -webkit-transition: -webkit-$transition;
+    -khtml-transition: -khtml-$transition;
+    -apple-transition: -apple-$transition;
+    -moz-transition: -moz-$transition;
+    -ms-transition: -ms-$transition;
+    -o-transition: -o-$transition;
+    transition: $transition;
+}
+
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+   -khtml-border-radius: $radius;
+   -apple-border-radius: $radius;
+     -moz-border-radius: $radius;
+      -ms-border-radius: $radius;
+       -o-border-radius: $radius;
+          border-radius: $radius;
+}
+
+
+@mixin box-shadow($shadow) {
+  -webkit-box-shadow: $shadow;
+   -khtml-box-shadow: $shadow;
+   -apple-box-shadow: $shadow;
+     -moz-box-shadow: $shadow;
+      -ms-box-shadow: $shadow;
+       -o-box-shadow: $shadow;
+          box-shadow: $shadow;
+    &:active, &:hover, &:focus, &:visited,
+    &:active:hover, &:active:focus, &:active:visited,
+    &:hover:focus, &:hover:visited,
+    &:focus:visited {
+  -webkit-box-shadow: $shadow;
+   -khtml-box-shadow: $shadow;
+   -apple-box-shadow: $shadow;
+     -moz-box-shadow: $shadow;
+      -ms-box-shadow: $shadow;
+       -o-box-shadow: $shadow;
+          box-shadow: $shadow;
+  }
+}
+
+@mixin setLimitHeight($height,$corTrack:$colorGrey,$corThumb:$colorRed) {
+    height: auto;
+    max-height: $height;
+    overflow-x: hidden;
+    overflow-y: auto;
+    &::-webkit-scrollbar {
+        width: 7px;
+    }
+    &::-webkit-scrollbar-track {
+        background-color: $corTrack;
+        @include border-radius(4px);
+    }
+    &::-webkit-scrollbar-thumb {
+        background-color: $corThumb;
+        @include border-radius(4px);
+    }
+}
+
+@mixin noSelect(){
+    -webkit-touch-callout: none;  /* iPhone OS, Safari */
+    -webkit-user-select: none;    /* Chrome, Safari 3 */
+    -khtml-user-select: none;     /* Safari 2 */
+    -moz-user-select: none;       /* Firefox */
+    -ms-user-select: none;        /* IE10+ */
+    user-select: none;
+}

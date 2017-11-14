@@ -1,0 +1,26 @@
+$colorWhite: #FFFFFF;
+$colorGreyDark: #4A4A4B;
+$colorGrey: #BBBBBB;
+$colorGrayBackMenu:#333333;
+$colorGreyBorderCampo:#898989;
+$colorGreyLineGrids: #EEEEEE;
+$colorBlack:#000000;
+$colorRed:#C41E39;
+$colorRedSure:#ED5E74;
+//$colorRedSure:#E82C0C;
+$colorBlue: #0059B2;
+$colorPink: #FFC0CB;
+
+
+.backGreySure {
+    background: #F2F2F2;
+    width: 100%;
+    height: 100%;
+    background-size:100%;
+}
+.backWhite {
+    background: $colorWhite;
+    width: 100%;
+    height: 100%;
+    background-size:100%;
+}

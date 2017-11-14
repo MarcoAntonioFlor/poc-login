@@ -1,0 +1,94 @@
+.demonstrativo-pagamento{
+    color: $colorBlack;
+    .container{
+        margin-top: 20px;
+        width: 800px;
+        position: relative;
+        .header-demonstrativo{
+            background: #d9d9d9;
+            border: 1px solid $colorGrayBackMenu;
+            padding:10px 0px;
+            height: 80px;
+            box-sizing: border-box;
+        }
+        h1{
+            margin: 0 0 10px 0;
+            @extend .font-bold;
+            font-size: 19px;
+        }
+        h2{
+           margin: 0;
+           @extend .font-bold;
+           font-size: 17px
+        }
+        h3{
+           margin: 0;
+           @extend .font-medium;
+           font-size: 15px  
+        }
+        h4{
+           @extend .font-medium;
+           font-size: 13px  
+        }
+        .logo-dasa{
+            background: url('../images/logo_dasa.png');
+            background-repeat: no-repeat;
+            width: 143px;
+            height: 43px;
+        }
+
+        hr{
+            margin: 4px 0;
+            border-top: 1px solid $colorGrayBackMenu
+        }
+        table{
+            width: 100%;
+            font-size: 14px;
+            @extend .font-medium;
+            margin: 10px 0px;
+            tr>td{
+                font-size: 13px;
+                padding:4px 4px;
+            }
+            &.table-resumo-exames{
+                >tbody{
+                    >tr{
+                        &:nth-child(odd) {
+                            background-color: $colorGreyLineGrids
+                        }
+                        &:nth-child(even) {
+                            background-color: $colorWhite;
+                        }
+                    }
+                }
+            }
+        }
+        p{
+          margin: 0;
+        }
+        .dados-tomador{
+            @extend .font-medium;
+            margin: 10px 0;
+            text-align: center;
+            font-size: 13px;
+        }
+        .colorBlue{
+            text-decoration: underline;
+            color:$colorBlue;
+        }
+    }
+    // .logo_dasa_demonstrativos{
+    //     background: url('../images/logo_dasa_demonstrativos.jpg');
+    //     background-repeat: no-repeat;
+    //     position: absolute;
+    //     top: 206px;
+    //     left: 120px;
+    //     width: 570px;
+    //     height: 177px;
+    //     opacity: 0.1;
+    // }
+    .footer-info{
+        position: absolute;
+        bottom: 0;
+    }
+}

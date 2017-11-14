@@ -1,0 +1,148 @@
+
+.table-section{
+    .row{
+        margin: 0;
+        padding: 0 4px;
+    }
+}
+
+.table-data-section {
+    text-align: center;
+    width: 100%;
+    > thead {
+        tr {
+            background-color: $colorRed;
+            color: $colorWhite;
+            border-top-left-radius: 4px;
+            th {
+                white-space: nowrap;
+                text-align: center;
+                font-size: 13px;
+                @extend .font-medium;
+                border: 1px solid $colorWhite;
+                box-sizing: border-box;
+                padding: 8px 10px;
+                &:first-child {
+                    @include border-radius(4px 0 0 4px);
+                }
+                &:last-child {
+                    @include border-radius(0 4px 4px 0);
+                }
+                .icon-order-by {
+                    display: block;
+                    margin: 7px auto 0;
+                }
+            }
+        }
+    }
+    > tbody, &.table-stripes {
+        > tr {
+            @extend .font-regular;
+            font-size: 13px;
+            color: $colorBlack;
+            vertical-align: initial;
+            td{
+                white-space: nowrap;
+                padding: 8px 10px;
+                border: 1px solid $colorWhite;
+                .fa{
+                    background: transparent;
+                    border: none;
+                    font-size: 18px;
+                    padding: 0;
+                    cursor: pointer;
+                }
+                >button{
+                    border:none;
+                    background-color: transparent;
+                }
+            }
+            &:nth-child(odd) {
+                background-color: $colorGreyLineGrids
+            }
+
+            &:nth-child(even) {
+                background-color: $colorWhite;
+
+            }
+            a{
+                color: $colorBlack;
+            }
+        }
+    }
+    
+}
+
+
+ .table-modal{
+    display: block;
+    width: 100%;
+    min-height: 30px;
+    height: auto;
+    box-sizing: border-box;
+    border-top: none;
+    >.thead-modal{
+        padding: 0;
+        display: block;
+        width: 100%;
+        height: 30px;
+        background-color: $colorRed;
+        color: $colorWhite;
+        @include border-radius(8px);
+        >div.item-th{
+            height: 30px;
+            text-align: center;
+            padding: 6px 8px;
+            text-align: center;  
+            font-size: 13px;
+            font-weight: normal;
+            @extend .font-medium;
+            //border: 1px solid $colorWhite;
+            &:first-child{
+              border-right: 1px solid $colorWhite;   
+            }
+        }
+     }
+    >.tbody-modal{
+        border: solid 1px #F2F2F2;
+        @extend .font-regular;
+        font-size: 13px;
+        color: $colorGrayBackMenu;
+        height: 170px;
+        padding: 6px 8px;
+        vertical-align: initial;
+        @include setLimitHeight(170px);
+        @include border-radius(8px);
+        
+        .item-tr-modal{
+            text-indent: 10px;
+            box-sizing: border-box;
+            text-indent: 10px;
+            box-sizing: border-box;
+            padding: 10px 0px;
+            border-bottom: 1px solid #F2F2F2;
+            .campo-empresa{
+                cursor: pointer;
+            }
+            label{
+                @extend .font-regular;
+                font-weight: normal;
+            }
+            div >.fa{
+                border: none;
+                font-size: 18px;
+                cursor: pointer;
+                background-color: transparent;
+                outline: none;
+            }
+            &:last-child{
+                border-bottom:none;
+            }
+        }
+    }
+}
+
+
+
+  
+

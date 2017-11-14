@@ -1,0 +1,35 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+	
+	<head th:replace="fragments/header :: header-css">
+        <meta charset="UTF-8" />
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <meta name="viewport" content="width=device-width" />
+    </head>
+
+	<body class="backGreySure">
+
+         <div th:replace="fragments/menu:: header-menu"></div> 
+
+		<section>
+			<div class="container">
+				<ul class="breadcrumbs">
+					<li><a class="link" href="/home">Home</a></li>
+				</ul>
+				<div class="row">       
+					<div class="col-xs-12 col-sm-4">  
+						<hgroup class=" groupTitle">
+							<h1>Home page Hígia...</h1>
+						</hgroup>
+					</div>
+				</div>
+			</div>
+        </section>
+        <div th:include="fragments/scripts::imports-js"></div>
+		<script>
+            requirejs(['boot'], function(){
+                requirejs(['header']);
+            });
+        </script> 
+	</body>
+</html>
